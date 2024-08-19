@@ -28,14 +28,14 @@ l'info doit etre atomique
  - niveau logique
  - niveau physique
 
-![alt text](image-1.png)
+![alt text](/IMG/image-1.png)
 
 
-![alt text](image.png)
+![alt text](/IMG/image.png)
 suite a la collecte des doccument on peut y remplir un dictionnaire de données 
 
 dictionnaire de données
-![alt text](image-2.png)
+![alt text](/IMG/image-2.png)
 
 1 Dependances fonctionnelles:
 est une relation entre deux attributs d'une table. 
