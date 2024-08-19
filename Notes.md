@@ -21,13 +21,35 @@ l'info doit etre atomique
 
 
  ## approche nivelée 
- 4 niveaux pour effectuer la conception d'un SI
+ 4 niveaux de Merise pour effectuer la conception d'un SI
 
  - niveau conseptuel
  - niveau organisationnel
  - niveau logique
  - niveau physique
 
-1 niveau conseptuel
-permet de modélisé les données de l'entreprise. on utlisise le modele conseptuel de donnée (MCD) pour modélisé les données de l'entreprise
-et le MCT pour modélisé les traitement effectué sur ces données
+![alt text](image-1.png)
+
+
+![alt text](image.png)
+suite a la collecte des doccument on peut y remplir un dictionnaire de données 
+
+dictionnaire de données
+![alt text](image-2.png)
+
+1 Dependances fonctionnelles:
+est une relation entre deux attributs d'une table. 
+A dépend fonctionnellement d'une donnée B
+
+Pour formaliser une dependance fonctionnelle on utilise la notation suivante :   
+Numero adherent (Nom, prenom, code postal, ville, telephone, date d'adhesion, mail)
+
+La partie gauche (numero adherent) est la source de la dependance fonctionnelle. La partie droite desgine le but de la dependance.
+
+
+2 Dependances fonctionnelles composées
+
+Si une dependance fonctionnelle fait intervenir plus de deux attributs (source) on parle de dependance fonctionnelle composee.  
+Exemple: Pour connaitre le temps d'un coureur sur une etape donnee il nous faut son numero ou son nom ainsi que le nom ou le numero de l'etape.          
+Formalisation:  
+(numero coureur, numero etape) (temps)
