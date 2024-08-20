@@ -141,3 +141,99 @@ ici un employer peut Diriger zéro ou n (employer) et peut etre dirigé uniqueme
 #### Contrainte d'intégrité fonctionnelle (CIF)
 une CIF est définit par le fait qu'une des entités de l'association est completement déterminée par la connaissance d'une ou de plusieurs entites participant a l association
 
+
+
+## Modele logique de données (MLD)
+Le MLD est la suite du processus Merise, on se rapproche un peu plus de la base de données.
+#### Exemple 
+![alt text](/IMG/image-14.png)
+
+#### Cas simple de MLD
+![alt text](/IMG/image-8.png)
+
+Nous arrivons au MLD suivant :
+![alt text](/IMG/image-20.png)
+
+L'entite qui possede la cardinalite 1,1 ou 0,1 absorbe l'identifiant de l'entite la plus forte (0,n ou 1,n). Cet identifiant devient alors une cle etrangere.
+
+#### Cas (0,n), (0,n) ou (1,n), (1,n)
+Parlons du MCD suivant:
+![alt text](/IMG/image-13.png)
+l'entité qui possede la cadinnalité maximale egale a 1 recevra le ou les identifiants des entités ayant les cardianalités maximale les plus fortes
+
+Dans le cas ou la cardinalité max est n des deux cotés, on cree une entité intermédiaire qui va contenir les deux clés étrangeres des deux entités.  
+![alt text](/IMG/image-12.png)
+
+
+Continuons avec le MCD suivant :   
+![alt text](/IMG/image-23.png)
+
+On obtient le MLD suivant en suivant la meme logique:                    
+![alt text](/IMG/image-24.png)                                       
+
+#### Cas d'une relation reflexive
+Partons du MCD suivant :   
+![alt text](/IMG/image-25.png)
+![alt text](/IMG/image-26.png)
+
+
+## Modele physique des donnees (MPD)
+Le MPD est la suite du MLD, il permet de passer du modele logique des donnees au modele physique des donnees.
+Voici le schema relationnel correspondant au MLD precedent:
+Diplômes (Diplomes)
+Possède (#NumEmployé, #Diplôme, Date d'obtention)
+Employés (NumEmployé, Nom, Prénom, Adresse, Code Postal, Ville, Téléphone)
+Tables (NumTable, Capacité)
+Date (Date)
+Service (TypeService, Désignation)
+Boissons Diverses (NumBoissons, Désignation, Prix de vente)
+Contenir (#NumCommande, #NumBoissons, Quantité)
+Commande (NumCommande, #Numemployé, #Date, #TypeService, #NumTable)
+Comprend (#NumMenu, #NumCommande, Quantité)
+Menus (NumMenu, Libellé, Prix de vente)
+Constitué (#NumMenu, #NumPlat)
+Constituer (#NumCommande, #NumPlat, Quantité)
+Sélectionner (#NumCommande, #NumVin, Quantité)
+Carte des vins (NumVin, Nom du vin, Millesime, Prix de vente)
+
+traduit en script sql:
+```SQL
+CREATE TABLE CARTE_DES_VINS
+   (
+   NUMVIN INTEGER(2) NOT NULL ,
+   NOM_DU_VIN CHAR(40)   ,
+   MILLESIME INTEGER(2)  ,
+   PRIX_DE_VENTE REAL(5,2)
+,
+    PRIMARY KEY (NUMVIN) CONSTRAINT PK_CARTE_DES_VINS
+   );
+
+CREATE TABLE BOUTEILLES
+   (
+   NUMVITICULTEUR INTEGER(2) NOT NULL ,
+   NUMVIN INTEGER(2) NOT NULL ,
+   NUMBOUTEILLE INTEGER(2) NOT NULL ,
+   DATE_ACHAT DATE(8) ,
+   PRIX_D_ACHAT REAL(5,2)
+,
+    PRIMARY KEY (NUMVITICULTEUR, NUMVIN, NUMBOUTEILLE) CONSTRAINT
+PK_BOUTEILLES
+   );
+
+
+CREATE TABLE VITICULTEUR
+   (
+   NUMVITICULTEUR INTEGER(2) NOT NULL ,
+   NOM_VITICULTEUR CHAR(20) ,
+   PRÉNOM_VITICULTEUR CHAR(20) ,
+   ADRESSE_VITICULTEUR CHAR(40) ,
+   CODE_POSTAL CHAR(5) ,
+   VILLE CHAR(40) ,
+   TÉLÉPHONE CHAR(15)
+,
+    PRIMARY KEY (NUMVITICULTEUR) CONSTRAINT PK_VITICULTEUR
+   );
+```
+
+
+
