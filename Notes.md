@@ -28,6 +28,31 @@ l'info doit etre atomique
  - niveau physique
 
 ![alt text](/IMG/image-1.png)
+#### Le niveau conceptuel
+Permet de modéliser les données de l'entreprise. On va utiliser le modèle conceptuel de données (MCD) pour modéliser les données de l'entreprise, et le MCT pour modéliser les traitements effectués sur ces données.
+
+#### Le niveau organisationnel
+Permet d'integrer a l'analyse precedente toutes les notions de temporalite, de chronologie des operations, de contraintes geographique, niveau d'acces. On va utiliser le modele organisationnel des traitements (MOT) et le modele organisationnel des donnees (MOD) pour modéliser les traitements de l'entreprise.
+
+En resume on se pose les questions suivantes a partir des donnees recueillies au niveau conceptuel :
+
+Quand les traitements sont-ils effectues ?
+Où les traitements sont-ils effectues ?
+Par qui les traitements sont-ils effectues ?
+
+#### Le niveau logique:   
+Permet de modéliser les données de l'entreprise en utilisant le modèle logique de données (MLD) et les traitements de l'entreprise en utilisant le modèle logique des traitements (MLT).
+
+Le MLD est independant des langages de programmation et des SGBD (Systeme de Gestion de Base de Donnees).
+
+On repond a la question : Avec Quoi les traitements sont-ils effectues ?
+
+#### Le niveau physique
+Il s'agit de l'organisation réelle des données. On va utiliser le modèle physique de données (MPD) et le modèle physique des traitements (MPT).
+
+Ici, on apporte les solutions techniques de stockage des données et de traitement des données.
+
+On repond a la question : Comment les traitements sont-ils effectues ?
 
 
 ![alt text](/IMG/image.png)
@@ -36,7 +61,7 @@ suite a la collecte des doccument on peut y remplir un dictionnaire de données
 dictionnaire de données
 ![alt text](/IMG/image-2.png)
 
-1 Dependances fonctionnelles:
+### Dependances fonctionnelles:
 est une relation entre deux attributs d'une table. 
 A dépend fonctionnellement d'une donnée B
 
@@ -46,14 +71,14 @@ Numero adherent (Nom, prenom, code postal, ville, telephone, date d'adhesion, ma
 La partie gauche (numero adherent) est la source de la dependance fonctionnelle. La partie droite desgine le but de la dependance.
 
 
-2 Dependances fonctionnelles composées
+### Dependances fonctionnelles composées
 
 Si une dependance fonctionnelle fait intervenir plus de deux attributs (source) on parle de dependance fonctionnelle composee.  
 Exemple: Pour connaitre le temps d'un coureur sur une etape donnee il nous faut son numero ou son nom ainsi que le nom ou le numero de l'etape.          
 Formalisation:  
 (numero coureur, numero etape) (temps)
 
-### Modele Conceptuel de Données MCD
+## Modele Conceptuel de Données MCD
 
 le MCD est un schemat conceptuel qui permet de représenté données d'une entreprise
 
